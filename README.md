@@ -6,7 +6,7 @@ Aplicação de TDD junto com a API do [spotify](https://developer.spotify.com)
 
 ## Authors
 
-* **Thiago Ferreira de Santana**[Github](https://github.com/thisantana)
+* **Thiago Ferreira de Santana** [Github](https://github.com/thisantana)
 
 ## License
 
