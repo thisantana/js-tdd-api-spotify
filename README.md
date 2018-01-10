@@ -1,6 +1,6 @@
 # Project Title
 
-Modelo de ambiente padrão para aplicação de TDD
+Aplicação de TDD junto com a API do [spotify](https://developer.spotify.com)
 
 ## Getting Started
 

@@ -1,14 +1,20 @@
 {
-  "name": "js-tdd-mocha-chai",
+  "name": "js-tdd-api-spotify",
   "version": "1.0.0",
-  "description": "Modelo padrão de ambiente para TDD com mocha-chai",
-  "main": "index.js",
+  "description": "Aplicação de TDD junto com a API do Spotify",
+  "main": "src/index.js",
   "scripts": {
+    "clear": "rimraf lib",
+    "prebuild": "./node_modules/.bin/babel --out-dir lib src",
+    "build": "npm run clear && npm run prebuild",
+    "build:watch": "npm run build -- --watch",
+    "build:umd": "./node_modules/.bin/webpack --output-filename spotify.umd.js",
+    "build:umd:min": "./node_modules/.bin/webpack --output-filename spotify.umd.min.js -p",
+    "build:all": "npm run build && npm run build:umd && npm run build:umd:min",
     "test": "mocha tests/**/*.spec.js --require babel-register",
     "test:tdd": "mocha tests/**/*.spec.js --require babel-register --watch",
     "test:coverage": "nyc npm test",
-    "lint": "eslint src/*.js",
-    "prepush": "npm run lint && npm run test:coverage"
+    "lint": "eslint src/*.js"
   },
   "nyc": {
     "check-coverage": true,
@@ -30,7 +36,11 @@
   "author": "Thiago Santana <thiago.fdsanta@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.4.1",
     "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.18.0",
     "babel-register": "^6.26.0",
     "chai": "^4.1.2",
     "eslint": "^4.12.1",
@@ -38,19 +48,28 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.5.1",
+    "husky": "^0.14.3",
     "mocha": "^4.0.1",
-    "nyc": "^11.3.0"
+    "node-fetch": "^1.7.3",
+    "nyc": "^11.3.0",
+    "rimraf": "^2.6.2",
+    "sinon": "^4.1.3",
+    "sinon-chai": "^2.14.0",
+    "sinon-stub-promise": "^4.0.0",
+    "webpack": "^2.7.0"
   },
   "directories": {
     "test": "tests"
   },
-  "dependencies": {},
+  "dependencies": {
+    "code": "^5.1.2"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thisantana/js-tdd-mocha-chai.git"
+    "url": "git+https://github.com/thisantana/js-tdd-api-spotify.git"
   },
   "bugs": {
-    "url": "https://github.com/thisantana/js-tdd-mocha-chai/issues"
+    "url": "https://github.com/thisantana/js-tdd-api-spotify/issues"
   },
-  "homepage": "https://github.com/thisantana/js-tdd-mocha-chai#readme"
+  "homepage": "https://github.com/thisantana/js-tdd-api-spotify#readme"
 }
