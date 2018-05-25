@@ -64,7 +64,7 @@
     "test": "tests"
   },
   "dependencies": {
-    "code": "^5.1.2",
+    "code": "^5.2.0",
     "nvm": "0.0.4"
   },
   "repository": {
